@@ -8,7 +8,7 @@ public class NetworkService{
     //JSON -- slightly different URL (remove &mode=xml) Chicago, Tonopah, Ogden
     private const string jsonApi = "https://api.weather.gov/gridpoints/TOP/95,44/forecast/hourly";//http://api.openweathermap.org/data/2.5/weather?q=KansasCity,us&APPID=<insert API key here>"; //Example: Cairo, Chicago
     
-    private const string webImage = "http://upload.wikimedia.org/wikipedia/commons/c/c5/Moraine_Lake_17092005.jpg";
+    private const string webImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Landscape_Arnisee-region.JPG/640px-Landscape_Arnisee-region.JPG";
 
     private IEnumerator CallAPI(string url, Action<string> callback) {
         using (UnityWebRequest request = UnityWebRequest.Get(url)) {
