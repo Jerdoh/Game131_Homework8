@@ -691,8 +691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46305438983449c1b37f6579379e4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sky: {fileID: 0}
-  sun: {fileID: 0}
+  sky: {fileID: 2100000, guid: efd1c33efd2d58340b88804268e6833f, type: 2}
+  sun: {fileID: 705507994}
 --- !u!4 &1754435303
 Transform:
   m_ObjectHideFlags: 0

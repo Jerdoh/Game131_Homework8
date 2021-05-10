@@ -49,9 +49,29 @@ public class WeatherManager : MonoBehaviour, IGameManager
         Dictionary<string, object> dict;
         dict = Json.Deserialize(data) as Dictionary<string,object>;
 
-        Dictionary<string, object> clouds = (Dictionary<string, object>) dict["clouds"];
-        cloudValue = (long)clouds["all"] / 100f;
-        Debug.Log("Value: " + cloudValue);
+        //Debug.Log(dict["properties"]["periods"][0]);
+
+        foreach (KeyValuePair<string, object> kvp in (Dictionary<string, object>)dict["properties"])
+        {
+            //Debug.Log("Key = " + kvp.Key + ", Value = " + kvp.Value);
+            if (kvp.Key == "periods")
+            {
+                //Debug.Log(kvp.Value);
+                List<object> values = (List<object>)kvp.Value;
+                Debug.Log(values[0]);
+                foreach(KeyValuePair<string, object> keyvalue in (Dictionary<string, object>)values[0])
+                {
+                    if (keyvalue.Key == "shortForecast")
+                    {
+                        Debug.Log(keyvalue.Value);
+                    }
+                }
+            }
+        }
+
+        //Dictionary<string, object> clouds = (Dictionary<string, object>) dict["clouds"];
+        //cloudValue = (long)clouds["all"] / 100f;
+        //Debug.Log("Value: " + cloudValue);
 
         Messenger.Broadcast(GameEvent.WEATHER_UPDATED);
 
